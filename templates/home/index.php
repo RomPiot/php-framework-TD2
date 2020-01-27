@@ -1,7 +1,6 @@
 <h1>Hello <?php echo $name; ?></h1>
 
-<form method="POST" action="action=#">
-    <input type="text">
+<form method="POST" action="#">
+    <input type="text" name="name">
     <input type="submit" value="Envoyer">
-    
 </form>

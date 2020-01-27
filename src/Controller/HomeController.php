@@ -12,10 +12,12 @@ class HomeController extends AbstractController
         /*$response = new Response("it works !");
         $response->send();*/
 
+        // dd($request);
+
         return $this->render(
             "home/index",
             [
-                "name"=>$request->query->get('name')
+                "name"=>$request->request->get('name')
             ]
         );
     }
