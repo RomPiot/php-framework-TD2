@@ -21,7 +21,7 @@ class Score
     private $id;
 
     /**
-     * @ORM\Column(type="int", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $score;
 
