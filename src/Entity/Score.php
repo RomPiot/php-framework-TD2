@@ -10,7 +10,23 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Score
 {
+    /**
+     * // Le champ sera une clé primaire
+     * @ORM\Id()
+     * // Le champ sera de type int
+     * @ORM\Column(type="integer")
+     * // Le champ sera une valeur auto-générée (autoincrement)
+     * @ORM\GeneratedValue()
+     */
     private $id;
+
+    /**
+     * @ORM\Column(type="int", nullable=false)
+     */
     private $score;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
     private $created_at;
 }
