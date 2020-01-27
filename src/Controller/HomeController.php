@@ -2,23 +2,16 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends AbstractController
 {
-    public function index(Request $request = null) : Response {
+    public function index(Request $request): Response
+    {
+        return $this->render("home/index");
 
-        /*$response = new Response("it works !");
-        $response->send();*/
-
-        // dd($request);
-
-        return $this->render(
-            "home/index",
-            [
-                "name"=>$request->request->get('name')
-            ]
-        );
     }
+
 }
