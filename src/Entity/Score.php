@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @Doctrine\ORM\Mapping\Entity()
  * @ORM\Table(name="score")
+ * @ORM\Entity(repositoryClass="App\Repository\ScoreRepository")
  */
 class Score
 {
@@ -33,7 +34,7 @@ class Score
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Player",inversedBy="scores")
+     * @ORM\ManyToOne(targetEntity="Player",inversedBy="scores")
      */
     private $players;
 
@@ -41,6 +42,12 @@ class Score
      * @ORM\ManyToOne(targetEntity="Game",inversedBy="scores")
      */
     private $game;
+
+
+    public function __construct() {
+        $this->players = new ArrayCollection();
+    }
+
 
     /**
      * @return mixed
@@ -88,6 +95,38 @@ class Score
     public function setCreatedAt($created_at)
     {
         $this->created_at = $created_at;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPlayers(): ArrayCollection
+    {
+        return $this->players;
+    }
+
+    /**
+     * @param ArrayCollection $players
+     */
+    public function setPlayers(Player $players)
+    {
+        $this->players[] = $players;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGame()
+    {
+        return $this->game;
+    }
+
+    /**
+     * @param mixed $game
+     */
+    public function setGame(Game $game)
+    {
+        $this->game = $game;
     }
 
 

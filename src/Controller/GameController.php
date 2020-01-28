@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Game;
 use App\FakeData;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,9 @@ class GameController extends AbstractController
         /**
          * @todo lister les jeux de la base
          */
-        $games = FakeData::games(15);
+        //$games = FakeData::games(15);
+        $games = $entityManager->getRepository(Game::class)->findAll();
+
         return $this->render("game/index", ["games" => $games]);
 
     }

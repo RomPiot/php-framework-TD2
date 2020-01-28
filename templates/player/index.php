@@ -14,6 +14,7 @@
     </tr>
     </thead>
     <tbody>
+
     <?php foreach ($players as $player): ?>
         <tr>
             <td><?= $player["id"]; ?></td>

@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @Doctrine\ORM\Mapping\Entity()
  * @ORM\Table(name="game")
+ * @ORM\Entity(repositoryClass="App\Repository\PlayerRepository")
  */
 class Game
 {
@@ -33,7 +34,7 @@ class Game
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Player", mappedBy="game")
+     * @ORM\ManyToMany(targetEntity="Player", mappedBy="games")
      */
     private $players;
 
@@ -45,6 +46,12 @@ class Game
     /**
      * @return mixed
      */
+
+    public function __construct() {
+        $this->scores = new ArrayCollection();
+        $this->players = new ArrayCollection();
+    }
+
     public function getId()
     {
         return $this->id;
@@ -88,6 +95,38 @@ class Game
     public function setImage($image)
     {
         $this->image = $image;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPlayers(): ArrayCollection
+    {
+        return $this->players;
+    }
+
+    /**
+     * @param ArrayCollection $players
+     */
+    public function setPlayers(Player $players)
+    {
+        $this->players[] = $players;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getScores(): ArrayCollection
+    {
+        return $this->scores;
+    }
+
+    /**
+     * @param ArrayCollection $scores
+     */
+    public function setScores(Score $scores)
+    {
+        $this->scores[] = $scores;
     }
 
 

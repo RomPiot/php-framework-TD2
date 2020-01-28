@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @Doctrine\ORM\Mapping\Entity()
  * @ORM\Table(name="player")
+ * @ORM\Entity(repositoryClass="App\Repository\PlayerRepository")
  */
 class Player
 {
@@ -32,15 +33,22 @@ class Player
     private $email;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Game", inversedBy="players")
+     * @ORM\ManyToMany(targetEntity="Game", inversedBy="players")
      */
-    private $game;
+    private $games;
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Score",inversedBy="players")
+     * @ORM\OneToMany(targetEntity="Score",mappedBy="players")
      */
     private $scores;
+
+    public function __construct() {
+        $this->scores = new ArrayCollection();
+        $this->games = new ArrayCollection();
+    }
+
+
 
     /**
      * @return mixed
@@ -88,6 +96,38 @@ class Player
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGames() : Game
+    {
+        return $this->games;
+    }
+
+    /**
+     * @param mixed $games
+     */
+    public function setGames(Game $games) : void
+    {
+        $this->games = $games;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getScores(): ArrayCollection
+    {
+        return $this->scores;
+    }
+
+    /**
+     * @param ArrayCollection $scores
+     */
+    public function setScores(Score $scores)
+    {
+        $this->scores[] = $scores;
     }
 
 
