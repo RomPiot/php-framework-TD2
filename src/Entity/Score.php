@@ -2,6 +2,7 @@
 
 
 namespace App\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,4 +30,66 @@ class Score
      * @ORM\Column(type="datetime")
      */
     private $created_at;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\ManyToMany(targetEntity="Player",inversedBy="scores")
+     */
+    private $players;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Game",inversedBy="scores")
+     */
+    private $game;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+
+    /**
+     * @param mixed $score
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * @param mixed $created_at
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->created_at = $created_at;
+    }
+
+
+
 }

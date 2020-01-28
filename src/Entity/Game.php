@@ -2,6 +2,7 @@
 
 
 namespace App\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,5 +30,68 @@ class Game
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $image;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Player", mappedBy="game")
+     */
+    private $players;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Score",mappedBy="game")
+     */
+    private $scores;
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+
+
+
 
 }

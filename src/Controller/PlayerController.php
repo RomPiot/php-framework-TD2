@@ -12,7 +12,7 @@ class PlayerController extends AbstractController
 {
 
 
-    public function index(Request $request): Response
+    public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         /**
          * @todo lister les joueurs

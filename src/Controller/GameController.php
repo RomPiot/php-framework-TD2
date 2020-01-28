@@ -12,7 +12,7 @@ class GameController extends AbstractController
 {
 
 
-    public function index(Request $request): Response
+    public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         /**
          * @todo lister les jeux de la base
