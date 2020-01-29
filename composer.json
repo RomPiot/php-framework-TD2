@@ -1,17 +1,19 @@
 {
-    "name": "digital/php-tp2",
+    "name": "decima/tp1",
     "authors": [
         {
-            "name": "Romain PIOT",
-            "email": "romainpiot.pro@gmail.com"
+            "name": "Decima",
+            "email": "h.larget@gmail.com"
         }
     ],
     "require": {
-        "symfony/http-foundation": "^5.0"
-
+        "symfony/http-foundation": "^4.2",
+        "doctrine/orm": "^2.6.2",
+        "symfony/dotenv": "^4.2",
+        "fzaninotto/faker": "^1.8"
     },
     "require-dev": {
-        "symfony/var-dumper": "^5.0"
+        "symfony/var-dumper": "^4.2"
     },
     "autoload": {
         "psr-4": {
