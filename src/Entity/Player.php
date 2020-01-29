@@ -93,7 +93,7 @@ class Player
     /**
      * @return mixed
      */
-    public function getGames() : Game
+    public function getGames() : ArrayCollection
     {
         return $this->games;
     }

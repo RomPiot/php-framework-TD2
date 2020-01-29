@@ -35,7 +35,7 @@ class PlayerController extends AbstractController
     {
         if ($request->getMethod() == Request::METHOD_POST) {
             /**
-             * @todo enregistrer l'objet
+             * enregistre l'objet
              */
             if ($request->request->has('submit')) {
                 $name = $request->request->get('username');
@@ -57,9 +57,13 @@ class PlayerController extends AbstractController
     }
 
 
-    public function show($id): Response
+    public function show(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $player = FakeData::players(1)[0];
+		$id = $request->query->get("id");
+
+		$repository = $entityManager->getRepository(Player::class);
+		$player = $repository->find($id);
+
         return $this->render(
             "player/show",
             ["player" => $player, "availableGames" => FakeData::games()]
