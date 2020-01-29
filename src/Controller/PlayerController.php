@@ -12,19 +12,18 @@ use Symfony\Component\HttpFoundation\Response;
 class PlayerController extends AbstractController
 {
 
-
+	
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         /**
          * @todo lister les joueurs
          */
 
-        $test = new Player();
-        $test->setUsername("freferf");
-        $test->setEmail("vrevrev");
-        $entityManager->persist($test);
 
-        $repository = $entityManager->getRepository(Player::class);
+
+		$repository = $entityManager->getRepository(Player::class);
+		
+		\dd($repository);
         $players = $repository->findAll();
 
         return $this->render(
@@ -34,7 +33,7 @@ class PlayerController extends AbstractController
 
     }
 
-    public function add(Request $request): Response
+    public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         // $player = FakeData::players(1)[0];
 
@@ -44,7 +43,13 @@ class PlayerController extends AbstractController
              */
             if ($request->request->has('submit')) {
                 $name = $request->request->get('username');
-                $email = $request->request->get('email');
+				$email = $request->request->get('email');
+				
+				$test = new Player();
+				$test->setUsername($name);
+				$test->setEmail($email);
+				$entityManager->persist($test);
+				$entityManager->flush();
 
             }
 
