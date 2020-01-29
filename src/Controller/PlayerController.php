@@ -38,11 +38,8 @@ class PlayerController extends AbstractController
 			return $this->redirectTo("/player");
 		}
 
-		// TODO
-		return $this->render(
-			"player/form",
-			["player" => $player]
-		);
+		$player = $player ?? null;
+		return $this->render("player/form", ["player" => $player]);
 	}
 
 
@@ -55,7 +52,10 @@ class PlayerController extends AbstractController
 
 		return $this->render(
 			"player/show",
-			["player" => $player, "availableGames" => FakeData::games()]
+			[
+				"player" => $player,
+				"availableGames" => FakeData::games()
+			]
 		);
 	}
 
@@ -80,20 +80,21 @@ class PlayerController extends AbstractController
 				return $this->redirectTo("/player");
 			}
 		}
-
-
-		return $this->render(
-			"player/form",
-			["player" => $player]
-		);
+		return $this->render("player/form",	["player" => $player]);
 	}
 
-	public function delete($id): Response
+	public function delete(Request $request, EntityManagerInterface $entityManager): Response
 	{
-		/**
-		 * @todo supprimer l'objet
-		 */
-		return $this->redirectTo("/game");
+		$id = $request->query->get("id");
+		$repository = $entityManager->getRepository(Player::class);
+		$player = $repository->find($id);
+
+		$repository = $entityManager->getRepository(Player::class);
+		$entityManager->remove($player);
+		$entityManager->flush();
+
+
+		return $this->redirectTo("/player");
 	}
 
 	public function addgame($id, Request $request): Response
