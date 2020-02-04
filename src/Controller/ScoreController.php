@@ -18,27 +18,42 @@ class ScoreController extends AbstractController
 
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
-        //$scores = FakeData::scores();
-        //$games = FakeData::games();
-        //$players = FakeData::players();
-
         $scores = $entityManager->getRepository(Score::class)->findAll();
         $games = $entityManager->getRepository(Game::class)->findAll();
         $players = $entityManager->getRepository(Player::class)->findAll();
 
-
+//        dd($scores);
         return $this->render("score/index", ["scores" => $scores,
             "games" => $games, "players" => $players]);
     }
 
-    public function add(Request $request): Response
+    public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $score = new Score();
+
         if ($request->getMethod() == Request::METHOD_POST) {
-            /**
-             * @todo enregistrer l'objet
-             */
+
+            if ($request->request->has('submit')) {
+
+                $player = $request->query->get("player");
+                $game = $request->query->get("game");
+                $scoreNumber = $request->query->get("score");
+
+
+
+                $score->setGame($game);
+                $score->setPlayers($player);
+                $score->setScore($scoreNumber);
+
+                $entityManager->persist($score);
+                $entityManager->flush();
+            }
+
+
             return $this->redirectTo("/score");
         }
     }
+
+
 
 }

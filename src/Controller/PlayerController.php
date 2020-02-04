@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Game;
 use App\Entity\Player;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,12 +24,13 @@ class PlayerController extends AbstractController
 
 	public function add(Request $request, EntityManagerInterface $entityManager): Response
 	{
-		if ($request->getMethod() == Request::METHOD_POST) {
+        $player = new Player();
+
+        if ($request->getMethod() == Request::METHOD_POST) {
 			if ($request->request->has('submit')) {
 				$name = $request->request->get('username');
 				$email = $request->request->get('email');
 
-				$player = new Player();
 				$player->setUsername($name);
 				$player->setEmail($email);
 				$entityManager->persist($player);
@@ -37,28 +39,29 @@ class PlayerController extends AbstractController
 			return $this->redirectTo("/player");
 		}
 
-		$player = $player ?? null;
 		return $this->render("player/form", ["player" => $player]);
 	}
 
 
-	public function show(Request $request, EntityManagerInterface $entityManager): Response
-	{
-		$id = $request->query->get("id");
+    public function show(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $id = $request->query->get("id");
 
-		$repository = $entityManager->getRepository(Player::class);
-		$player = $repository->find($id);
+        $gameRepository = $entityManager->getRepository(Game::class);
+        $repository = $entityManager->getRepository(Player::class);
+        $player = $repository->find($id);
+
+//        dd($player->getGames());
 
 
-
-		return $this->render(
-			"player/show",
-			[
-				"player" => $player,
-				"availableGames" => null
-			]
-		);
-	}
+        return $this->render(
+            "player/show",
+            [
+                "player" => $player,
+                "availableGames" => $gameRepository->findAll()
+            ]
+        );
+    }
 
 
 	public function edit(Request $request, EntityManagerInterface $entityManager): Response
@@ -100,9 +103,20 @@ class PlayerController extends AbstractController
 	public function addgame(Request $request, EntityManagerInterface $entityManager): Response
 	{
 		if ($request->getMethod() == Request::METHOD_POST) {
-			/**
-			 * @todo enregistrer l'objet
-			 */
+
+            $playerId = $request->query->get("id");
+            $playerRepository = $entityManager->getRepository(Player::class);
+            $player = $playerRepository->find($playerId);
+
+            $gameId = $request->request->get("game");
+            $gameRepository = $entityManager->getRepository(Game::class);
+            $game = $gameRepository->find($gameId);
+
+            $player->addGame($game);
+
+            $entityManager->persist($player);
+            $entityManager->flush();
+
 			return $this->redirectTo("/player");
 		}
 	}

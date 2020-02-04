@@ -7,7 +7,7 @@
     <form class="form-inline" method="post" action="/player/addgame?id=<?= $player->getId(); ?>">
 
         <label class="sr-only" for="game">Game</label>
-        <select class="custom-select mr-sm-3" id="game" required>
+        <select class="custom-select mr-sm-3" id="game" required name="game">
             <option disabled selected>game</option>
             <?php foreach ($availableGames as $game): ?>
                 <option value="<?= $game->getId(); ?>"><?= $game->getName(); ?></option>

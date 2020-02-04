@@ -6,21 +6,21 @@
             <select class="custom-select mr-sm-3" id="game" name="game" required>
                 <option disabled selected>game</option>
                 <?php foreach ($games as $game): ?>
-                    <option value="<?= $game["id"]; ?>"><?= $game["name"]; ?></option>
+                    <option value="<?= $game->getId(); ?>"><?= $game->getName(); ?></option>
                 <?php endforeach; ?>
             </select>
             <label class="sr-only" for="player">Player</label>
             <select class="custom-select mr-sm-3" id="player" name="player" required>
                 <option disabled selected>player</option>
                 <?php foreach ($players as $player): ?>
-                    <option value="<?= $player["id"]; ?>"><?= $player["username"]; ?></option>
+                    <option value="<?= $player->getId(); ?>"><?= $player->getUsername(); ?></option>
                 <?php endforeach; ?>
             </select>
             <label class="sr-only" for="score">Score</label>
             <input type="number" class="form-control mr-sm-3 pull-right" name="score" id="score" placeholder="score" value="0">
 
 
-            <button type="submit" class=" ml-4 btn btn-primary">Add Score</button>
+            <button type="submit" name="submit" class=" ml-4 btn btn-primary">Add Score</button>
         </form>
     </div>
 </div>
@@ -41,12 +41,12 @@
         <tbody>
         <?php foreach ($scores as $score): ?>
             <tr>
-                <td><?= $score["id"]; ?></td>
-                <td><?= $score["player"]["username"]; ?></td>
-                <td><?= $score["game"]["name"]; ?></td>
-                <td> <?= $score["score"]; ?></td>
+                <td><?= $score->getId(); ?></td>
+                <td><?= $score->getPlayer()->getUsername(); ?></td>
+                <td><?= $score->getGame()->getName(); ?></td>
+                <td> <?= $score->getScore(); ?></td>
                 <td>
-                    <a href="/score/delete?id=<?= $score["id"]; ?>"
+                    <a href="/score/delete?id=<?= $score->getId(); ?>"
                        onclick="return confirm('Are you sure you want to delete it?')">
                         <i class="fas fa-trash"></i>
                     </a>

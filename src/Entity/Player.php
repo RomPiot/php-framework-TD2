@@ -106,6 +106,11 @@ class Player
         $this->games = $games;
     }
 
+    public function addGame(Game $game) : void
+    {
+        $this->games[] = $game;
+    }
+
     /**
      * @return ArrayCollection
      */
