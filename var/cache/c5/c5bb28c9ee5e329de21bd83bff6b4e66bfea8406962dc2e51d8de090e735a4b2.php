@@ -49,20 +49,19 @@ class __TwigTemplate_9b2275e2dcf9e1d32dc67310e4de75a9bb59d64741b3d6b5a8f3747fc49
         // line 4
         echo "
 <h1></h1>
-
 <form method=\"POST\" action=\"#\">
     <div class=\"form-group\">
         <label for=\"username\">Username</label>
         <input type=\"string\" class=\"form-control\" id=\"username\" name=\"username\" aria-describedby=\"username\" placeholder=\"\" value=\"";
-        // line 10
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["player"] ?? null), "username", [], "any", false, false, false, 10), "html", null, true);
+        // line 9
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["player"] ?? null), "username", [], "any", false, false, false, 9), "html", null, true);
         echo "\">
     </div>
     <div class=\"form-group\">
         <label for=\"email\">Email</label>
         <input type=\"string\" class=\"form-control\" id=\"email\" aria-describedby=\"email\" name=\"email\" placeholder=\"\" value=\"";
-        // line 14
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["player"] ?? null), "email", [], "any", false, false, false, 14), "html", null, true);
+        // line 13
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["player"] ?? null), "email", [], "any", false, false, false, 13), "html", null, true);
         echo "\">
     </div>
 
@@ -85,7 +84,7 @@ class __TwigTemplate_9b2275e2dcf9e1d32dc67310e4de75a9bb59d64741b3d6b5a8f3747fc49
 
     public function getDebugInfo()
     {
-        return array (  65 => 14,  58 => 10,  50 => 4,  46 => 3,  35 => 1,);
+        return array (  64 => 13,  57 => 9,  50 => 4,  46 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -95,7 +94,6 @@ class __TwigTemplate_9b2275e2dcf9e1d32dc67310e4de75a9bb59d64741b3d6b5a8f3747fc49
 {% block content %}
 
 <h1></h1>
-
 <form method=\"POST\" action=\"#\">
     <div class=\"form-group\">
         <label for=\"username\">Username</label>

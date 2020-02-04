@@ -53,7 +53,6 @@ class ScoreController extends AbstractController
 
                $entityManager->persist($score);
                $entityManager->flush();
-
            }
 
 

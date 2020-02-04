@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2408b6d-4bf4-4ff5-af9e-f638d0fbd8eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/var/cache/56/561b75266819426ba42e7a60eade23cd01dcd36cc46807eb107663ae9ae7f5cf.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PlayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/player/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ScoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ScoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/player/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/player/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/score/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/score/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/ab/ab21fdd335a832f293742e0bc95ca2d0b8eb3569b684abc99bf1433f23ba25fb.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/ab/ab21fdd335a832f293742e0bc95ca2d0b8eb3569b684abc99bf1433f23ba25fb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/bc/bc2d642d62c58e0b459d6e062627f112d0ac217619d119afebb7e73a1d181439.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/bc/bc2d642d62c58e0b459d6e062627f112d0ac217619d119afebb7e73a1d181439.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/c5/c5bb28c9ee5e329de21bd83bff6b4e66bfea8406962dc2e51d8de090e735a4b2.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/c5/c5bb28c9ee5e329de21bd83bff6b4e66bfea8406962dc2e51d8de090e735a4b2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/d0/d0a15b8963ec606d35c7f4ce86c1e0b5bd56ab742ba6f872822b013d8dd0d332.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/d0/d0a15b8963ec606d35c7f4ce86c1e0b5bd56ab742ba6f872822b013d8dd0d332.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            <state relative-caret-position="321">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -82,20 +75,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/player/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="349">
+              <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/score/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
-              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
         </entry>
@@ -105,6 +98,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
               <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/game/show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -161,19 +163,19 @@
         <option value="$PROJECT_DIR$/src/Entity/Score.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/ScoreController.php" />
         <option value="$PROJECT_DIR$/src/Controller/AbstractController.php" />
         <option value="$PROJECT_DIR$/src/Controller/GameController.php" />
         <option value="$PROJECT_DIR$/src/Controller/PlayerController.php" />
         <option value="$PROJECT_DIR$/templates/player/show.html.twig" />
         <option value="$PROJECT_DIR$/templates/home/index.html.twig" />
-        <option value="$PROJECT_DIR$/templates/layout.html.twig" />
         <option value="$PROJECT_DIR$/templates/game/show.html.twig" />
         <option value="$PROJECT_DIR$/templates/game/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/game/form.html.twig" />
         <option value="$PROJECT_DIR$/templates/player/form.html.twig" />
-        <option value="$PROJECT_DIR$/templates/player/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/score/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/ScoreController.php" />
+        <option value="$PROJECT_DIR$/templates/layout.html.twig" />
+        <option value="$PROJECT_DIR$/templates/player/index.html.twig" />
       </list>
     </option>
   </component>
@@ -386,13 +388,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37921000" />
+    <option name="totallyTimeSpent" value="38523000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1017" y="318" width="1445" height="988" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17391305" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17391305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -406,7 +408,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32924107" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="10" weight="0.32962963" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.35267857" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.35267857" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32924107" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -568,23 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ScoreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
-          <folding>
-            <element signature="e#35#55#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/game/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/game/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
@@ -613,13 +598,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/score/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        <state relative-caret-position="308">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ScoreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
           <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#35#55#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -631,17 +622,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/player/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/game/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="180">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/score/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="321">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/player/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
         </state>
       </provider>
     </entry>

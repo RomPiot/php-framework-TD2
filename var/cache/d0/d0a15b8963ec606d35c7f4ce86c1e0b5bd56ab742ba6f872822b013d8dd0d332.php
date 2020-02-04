@@ -66,16 +66,15 @@ class __TwigTemplate_4e8796049a1a00ca20fe162c18e329264bc652f9e515fea21ba0ddf4e21
         // line 44
         $this->displayBlock('content', $context, $blocks);
         // line 47
-        echo "        <?php include \$templateName . \".php\"; ?>
-
+        echo "
     </div> <!-- /container -->
 
 </main>
 
 ";
-        // line 53
+        // line 52
         $this->displayBlock('footer', $context, $blocks);
-        // line 59
+        // line 58
         echo "
 
 <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"
@@ -142,11 +141,11 @@ class __TwigTemplate_4e8796049a1a00ca20fe162c18e329264bc652f9e515fea21ba0ddf4e21
         ";
     }
 
-    // line 53
+    // line 52
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 54
+        // line 53
         echo "<footer class=\"container\">
     <hr/>
     &copy; 2019
@@ -161,7 +160,7 @@ class __TwigTemplate_4e8796049a1a00ca20fe162c18e329264bc652f9e515fea21ba0ddf4e21
 
     public function getDebugInfo()
     {
-        return array (  150 => 54,  146 => 53,  141 => 45,  137 => 44,  109 => 15,  105 => 14,  98 => 8,  79 => 59,  77 => 53,  69 => 47,  67 => 44,  61 => 40,  59 => 14,  52 => 9,  50 => 8,  41 => 1,);
+        return array (  149 => 53,  145 => 52,  140 => 45,  136 => 44,  108 => 15,  104 => 14,  97 => 8,  78 => 58,  76 => 52,  69 => 47,  67 => 44,  61 => 40,  59 => 14,  52 => 9,  50 => 8,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -212,7 +211,6 @@ class __TwigTemplate_4e8796049a1a00ca20fe162c18e329264bc652f9e515fea21ba0ddf4e21
         {% block content %}
 
         {% endblock %}
-        <?php include \$templateName . \".php\"; ?>
 
     </div> <!-- /container -->
 

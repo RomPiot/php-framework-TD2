@@ -90,7 +90,7 @@ class __TwigTemplate_acdfeecb2093aa175e361ce245980c477e65749f988603c8cde73586e5d
             echo "\">
                     <i class=\"fas fa-eye\"></i>
                 </a>
-                <a href=\"/player/edit?id=<";
+                <a href=\"/player/edit?id=";
             // line 30
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["player"], "id", [], "any", false, false, false, 30), "html", null, true);
             echo "\">
@@ -164,7 +164,7 @@ class __TwigTemplate_acdfeecb2093aa175e361ce245980c477e65749f988603c8cde73586e5d
                 <a href=\"/player/show?id={{ player.id }}\">
                     <i class=\"fas fa-eye\"></i>
                 </a>
-                <a href=\"/player/edit?id=<{{ player.id }}\">
+                <a href=\"/player/edit?id={{ player.id }}\">
                     <i class=\"fas fa-edit\"></i>
                 </a>
                 <a href=\"/player/delete?id={{ player.id }}\"
