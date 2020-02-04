@@ -15,57 +15,90 @@ class GameController extends AbstractController
 
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
-        /**
-         * @todo lister les jeux de la base
-         */
-        //$games = FakeData::games(15);
-        $games = $entityManager->getRepository(Game::class)->findAll();
+        $repository = $entityManager->getRepository(Game::class);
+        $games = $repository->findAll();
+
+//        dd($games);
+
+        return $this->render(
+            "game/index",
+            ["games" => $games]
+        );
 
         return $this->render("game/index", ["games" => $games]);
 
     }
 
-    public function add(Request $request): Response
+    public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $game = FakeData::games(1)[0];
-
         if ($request->getMethod() == Request::METHOD_POST) {
-            /**
-             * @todo enregistrer l'objet
-             */
+            if ($request->request->has('submit')) {
+                $name = $request->request->get('name');
+                $image = $request->request->get('image');
+
+                $game = new Game();
+                $game->setName($name);
+                $game->setImage($image);
+                $entityManager->persist($game);
+                $entityManager->flush();
+            }
             return $this->redirectTo("/game");
         }
+
+        $game = $game ?? null;
         return $this->render("game/form", ["game" => $game]);
     }
 
 
-    public function show($id): Response
+    public function show(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $game = FakeData::games(1)[0];
-        return $this->render("game/show", ["game" => $game]);
+        $id = $request->query->get("id");
+
+        $repository = $entityManager->getRepository(Game::class);
+        $game = $repository->find($id);
+
+        return $this->render(
+            "game/show",
+            [
+                "game" => $game
+            ]
+        );
     }
 
 
-    public function edit($id, Request $request): Response
+    public function edit(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $game = FakeData::games(1)[0];
+        $id = $request->query->get("id");
+
+        $repository = $entityManager->getRepository(Game::class);
+        $game = $repository->find($id);
 
         if ($request->getMethod() == Request::METHOD_POST) {
-            /**
-             * @todo enregistrer l'objet
-             */
-            return $this->redirectTo("/game");
+            if ($request->request->has('submit')) {
+                $name = $request->request->get('name');
+                $image = $request->request->get('image');
+
+                $game->setName($name);
+                $game->setImage($image);
+                $entityManager->persist($game);
+                $entityManager->flush();
+
+                return $this->redirectTo("/game");
+            }
         }
-        return $this->render("game/form", ["game" => $game]);
+        return $this->render("game/form",	["game" => $game]);
 
 
     }
 
-    public function delete($id): Response
+    public function delete(Request $request, EntityManagerInterface $entityManager): Response
     {
-        /**
-         * @todo supprimer l'objet
-         */
+        $id = $request->query->get("id");
+        $repository = $entityManager->getRepository(Game::class);
+        $game = $repository->find($id);
+
+        $entityManager->remove($game);
+        $entityManager->flush();
         return $this->redirectTo("/game");
 
     }

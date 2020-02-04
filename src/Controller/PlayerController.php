@@ -4,7 +4,6 @@ namespace App\Controller;
 
 
 use App\Entity\Player;
-use App\FakeData;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,11 +49,13 @@ class PlayerController extends AbstractController
 		$repository = $entityManager->getRepository(Player::class);
 		$player = $repository->find($id);
 
+
+
 		return $this->render(
 			"player/show",
 			[
 				"player" => $player,
-				"availableGames" => FakeData::games()
+				"availableGames" => null
 			]
 		);
 	}
@@ -89,7 +90,6 @@ class PlayerController extends AbstractController
 		$repository = $entityManager->getRepository(Player::class);
 		$player = $repository->find($id);
 
-		$repository = $entityManager->getRepository(Player::class);
 		$entityManager->remove($player);
 		$entityManager->flush();
 
@@ -97,7 +97,7 @@ class PlayerController extends AbstractController
 		return $this->redirectTo("/player");
 	}
 
-	public function addgame($id, Request $request): Response
+	public function addgame(Request $request, EntityManagerInterface $entityManager): Response
 	{
 		if ($request->getMethod() == Request::METHOD_POST) {
 			/**
