@@ -39,7 +39,7 @@ class Player
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Score",mappedBy="players")
+     * @ORM\OneToMany(targetEntity="Score",mappedBy="player")
      */
     private $scores;
 
@@ -93,7 +93,7 @@ class Player
     /**
      * @return mixed
      */
-    public function getGames() : ArrayCollection
+    public function getGames()
     {
         return $this->games;
     }

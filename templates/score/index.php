@@ -1,7 +1,7 @@
 <h1>Last Scores</h1>
 <div class="row">
     <div class="col">
-        <form class="form-inline" action="#">
+        <form class="form-inline" action="score/add">
             <label class="sr-only" for="game">Game</label>
             <select class="custom-select mr-sm-3" id="game" name="game" required>
                 <option disabled selected>game</option>

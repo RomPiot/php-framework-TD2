@@ -100,7 +100,7 @@ class Score
     /**
      * @param ArrayCollection $players
      */
-    public function setPlayers(Player $players)
+    public function addPlayers(Player $players)
     {
         $this->players[] = $players;
     }

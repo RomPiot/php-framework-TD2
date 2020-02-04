@@ -30,24 +30,33 @@ class ScoreController extends AbstractController
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         $score = new Score();
+        if ($request->getMethod() == Request::METHOD_GET) {
 
-        if ($request->getMethod() == Request::METHOD_POST) {
+           if ($request->query->has('submit')) {
 
-            if ($request->request->has('submit')) {
+                $playerId = $request->query->get("player");
+                $playerRepository = $entityManager->getRepository(Player::class);
+                $player = $playerRepository->find($playerId);
 
-                $player = $request->query->get("player");
-                $game = $request->query->get("game");
+                $gameId = $request->query->get("game");
+                $gameRepository = $entityManager->getRepository(Game::class);
+                $game = $gameRepository->find($gameId);
+
+
                 $scoreNumber = $request->query->get("score");
 
-
-
-                $score->setGame($game);
-                $score->setPlayers($player);
                 $score->setScore($scoreNumber);
+                $score->setGame($game);
 
-                $entityManager->persist($score);
-                $entityManager->flush();
-            }
+                $score->addPlayers($player);
+
+
+               $entityManager->persist($score);
+               dd($score);
+
+               $entityManager->flush();
+
+           }
 
 
             return $this->redirectTo("/score");
