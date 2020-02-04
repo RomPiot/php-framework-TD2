@@ -17,7 +17,7 @@ class PlayerController extends AbstractController
 		$players = $repository->findAll();
 
 		return $this->render(
-			"player/index",
+			"player/index.html.twig",
 			["players" => $players]
 		);
 	}
@@ -55,7 +55,7 @@ class PlayerController extends AbstractController
 
 
         return $this->render(
-            "player/show",
+            "player/show.html.twig",
             [
                 "player" => $player,
                 "availableGames" => $gameRepository->findAll()

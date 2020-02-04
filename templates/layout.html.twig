@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+    {% block title %}<title>Mon super Site</title>{% endblock %}
 
-    <title>Mon super Site</title>
 </head>
 <body style="background-color: #FAFAFA;">
 <main role="main">
-
     <header>
+    {% block navigation %}
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <a class="navbar-brand" href="#">My website</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -36,21 +36,26 @@
 
             </div>
         </nav>
+    {% endblock %}
     </header>
 
     <div class="container" style="margin-top: 24px; background: #fff;padding:24px;box-sizing: border-box;">
 
+        {% block content %}
 
+        {% endblock %}
         <?php include $templateName . ".php"; ?>
 
     </div> <!-- /container -->
 
 </main>
 
+{% block footer %}
 <footer class="container">
     <hr/>
     &copy; 2019
 </footer>
+{% endblock %}
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -65,3 +70,4 @@
 
 </body>
 </html>
+

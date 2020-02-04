@@ -58,7 +58,7 @@ class GameController extends AbstractController
         $game = $repository->find($id);
 
         return $this->render(
-            "game/show",
+            "game/show.html.twig",
             [
                 "game" => $game
             ]
