@@ -33,10 +33,9 @@ class Score
     private $created_at;
 
     /**
-     * @var ArrayCollection
      * @ORM\ManyToOne(targetEntity="Player",inversedBy="scores")
      */
-    private $players;
+    private $player;
 
     /**
      * @ORM\ManyToOne(targetEntity="Game",inversedBy="scores")
@@ -45,7 +44,7 @@ class Score
 
 
     public function __construct() {
-        $this->players = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
 
@@ -92,17 +91,17 @@ class Score
     /**
      * @return ArrayCollection
      */
-    public function getPlayers(): ArrayCollection
+    public function getPlayer()
     {
-        return $this->players;
+        return $this->player;
     }
 
     /**
      * @param ArrayCollection $players
      */
-    public function addPlayers(Player $players)
+    public function addPlayer(Player $player)
     {
-        $this->players[] = $players;
+        $this->player = $player;
     }
 
     /**

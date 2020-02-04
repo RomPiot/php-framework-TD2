@@ -48,7 +48,7 @@ class ScoreController extends AbstractController
                 $score->setScore($scoreNumber);
                 $score->setGame($game);
 
-                $score->addPlayers($player);
+                $score->addPlayer($player);
 
 
                $entityManager->persist($score);
