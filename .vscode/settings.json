@@ -1,18 +1,3 @@
 {
-	"sqltools.connections": [
-		{
-			"database": "postgres",
-			"dialect": "PostgreSQL",
-			"name": "postgres",
-			"password": "postgres",
-			"port": 20132,
-			"server": "http://127.0.0.1",
-			"username": "postgres"
-		},
-		{
-			"database": "${workspaceFolder}\\db.sqlite",
-			"dialect": "SQLite",
-			"name": "SQLite"
-		}
-	]
+	"sqltools.connections": []
 }
