@@ -21,11 +21,11 @@ class GameController extends AbstractController
 //        dd($games);
 
         return $this->render(
-            "game/index",
+            "game/index.html.twig",
             ["games" => $games]
         );
 
-        return $this->render("game/index", ["games" => $games]);
+        return $this->render("game/index.html.twig", ["games" => $games]);
 
     }
 
@@ -46,7 +46,7 @@ class GameController extends AbstractController
         }
 
         $game = $game ?? null;
-        return $this->render("game/form", ["game" => $game]);
+        return $this->render("game/form.html.twig", ["game" => $game]);
     }
 
 
@@ -58,7 +58,7 @@ class GameController extends AbstractController
         $game = $repository->find($id);
 
         return $this->render(
-            "game/show",
+            "game/show.html.twig",
             [
                 "game" => $game
             ]
@@ -86,9 +86,7 @@ class GameController extends AbstractController
                 return $this->redirectTo("/game");
             }
         }
-        return $this->render("game/form",	["game" => $game]);
-
-
+        return $this->render("game/form.html.twig",	["game" => $game]);
     }
 
     public function delete(Request $request, EntityManagerInterface $entityManager): Response

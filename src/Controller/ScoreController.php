@@ -23,7 +23,7 @@ class ScoreController extends AbstractController
         $players = $entityManager->getRepository(Player::class)->findAll();
 
 //        dd($scores);
-        return $this->render("score/index", ["scores" => $scores,
+        return $this->render("score/index.html.twig", ["scores" => $scores,
             "games" => $games, "players" => $players]);
     }
 
@@ -52,10 +52,7 @@ class ScoreController extends AbstractController
 
 
                $entityManager->persist($score);
-               dd($score);
-
                $entityManager->flush();
-
            }
 
 
