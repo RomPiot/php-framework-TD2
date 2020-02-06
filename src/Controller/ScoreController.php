@@ -6,16 +6,16 @@ namespace App\Controller;
 use App\Entity\Game;
 use App\Entity\Player;
 use App\Entity\Score;
-use App\FakeData;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Routing\Annotation\Route;
 
 
 class ScoreController extends AbstractController
 {
 
-
+	/** @Route("/score",name="score") */
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $scores = $entityManager->getRepository(Score::class)->findAll();

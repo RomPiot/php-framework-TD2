@@ -1,7 +1,10 @@
 <?php
-
-require __DIR__ . '/../vendor/autoload.php';
-
 use App\Kernel;
-$kernel = new Kernel();
+use Doctrine\Common\Annotations\AnnotationRegistry;
+
+$loader = require __DIR__ . '/../vendor/autoload.php';
+
+AnnotationRegistry::registerLoader([$loader, 'loadClass']);
+
+$kernel = new Kernel(false);
 $kernel->run();

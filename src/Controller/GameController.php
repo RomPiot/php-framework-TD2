@@ -4,15 +4,16 @@ namespace App\Controller;
 
 
 use App\Entity\Game;
-use App\FakeData;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Routing\Annotation\Route;
+
 
 class GameController extends AbstractController
 {
 
-
+	/** @Route("/game", name="game") */
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $repository = $entityManager->getRepository(Game::class);

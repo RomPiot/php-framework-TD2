@@ -8,9 +8,11 @@ use App\Entity\Player;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class PlayerController extends AbstractController
 {
+	/** @Route("/player", name="player") */
 	public function index(Request $request, EntityManagerInterface $entityManager): Response
 	{
 		$repository = $entityManager->getRepository(Player::class);
