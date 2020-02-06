@@ -62,9 +62,8 @@ class ScoreController extends AbstractController
 
                 $score->addPlayer($player);
 
-
-               $entityManager->persist($score);
-               $entityManager->flush();
+				$entityManager->persist($score);
+				$entityManager->flush();
            }
 
 
