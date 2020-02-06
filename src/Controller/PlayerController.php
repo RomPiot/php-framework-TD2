@@ -24,11 +24,12 @@ class PlayerController extends AbstractController
 		);
 	}
 
+	/** @Route("/player/add", name="player_add") */
 	public function add(Request $request, EntityManagerInterface $entityManager): Response
 	{
-        $player = new Player();
+		$player = new Player();
 
-        if ($request->getMethod() == Request::METHOD_POST) {
+		if ($request->getMethod() == Request::METHOD_POST) {
 			if ($request->request->has('submit')) {
 				$name = $request->request->get('username');
 				$email = $request->request->get('email');
@@ -44,31 +45,28 @@ class PlayerController extends AbstractController
 		return $this->render("player/form.html.twig", ["player" => $player]);
 	}
 
-
-    public function show(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $id = $request->query->get("id");
-
-        $gameRepository = $entityManager->getRepository(Game::class);
-        $repository = $entityManager->getRepository(Player::class);
-        $player = $repository->find($id);
-
-//        dd($player->getGames());
-
-
-        return $this->render(
-            "player/show.html.twig",
-            [
-                "player" => $player,
-                "availableGames" => $gameRepository->findAll()
-            ]
-        );
-    }
-
-
-	public function edit(Request $request, EntityManagerInterface $entityManager): Response
+	/** @Route("/player/show/{id}", name="player_show") */
+	public function show($id, Request $request, EntityManagerInterface $entityManager): Response
 	{
-		$id = $request->query->get("id");
+		// $id = $request->query->get("id");
+
+		$gameRepository = $entityManager->getRepository(Game::class);
+		$repository = $entityManager->getRepository(Player::class);
+		$player = $repository->find($id);
+
+		return $this->render(
+			"player/show.html.twig",
+			[
+				"player" => $player,
+				"availableGames" => $gameRepository->findAll()
+			]
+		);
+	}
+
+	/** @Route("/player/edit/{id}", name="player_edit") */
+	public function edit($id, Request $request, EntityManagerInterface $entityManager): Response
+	{
+		// $id = $request->query->get("id");
 
 		$repository = $entityManager->getRepository(Player::class);
 		$player = $repository->find($id);
@@ -89,9 +87,10 @@ class PlayerController extends AbstractController
 		return $this->render("player/form.html.twig",	["player" => $player]);
 	}
 
-	public function delete(Request $request, EntityManagerInterface $entityManager): Response
+	/** @Route("/player/delete/{id}", name="player_delete") */
+	public function delete($id, Request $request, EntityManagerInterface $entityManager): Response
 	{
-		$id = $request->query->get("id");
+		// $id = $request->query->get("id");
 		$repository = $entityManager->getRepository(Player::class);
 		$player = $repository->find($id);
 
@@ -102,22 +101,23 @@ class PlayerController extends AbstractController
 		return $this->redirectTo("/player");
 	}
 
+	/** @Route("/player/addgame", name="player_add_game") */
 	public function addgame(Request $request, EntityManagerInterface $entityManager): Response
 	{
 		if ($request->getMethod() == Request::METHOD_POST) {
 
-            $playerId = $request->query->get("id");
-            $playerRepository = $entityManager->getRepository(Player::class);
-            $player = $playerRepository->find($playerId);
+			$playerId = $request->query->get("id");
+			$playerRepository = $entityManager->getRepository(Player::class);
+			$player = $playerRepository->find($playerId);
 
-            $gameId = $request->request->get("game");
-            $gameRepository = $entityManager->getRepository(Game::class);
-            $game = $gameRepository->find($gameId);
+			$gameId = $request->request->get("game");
+			$gameRepository = $entityManager->getRepository(Game::class);
+			$game = $gameRepository->find($gameId);
 
-            $player->addGame($game);
+			$player->addGame($game);
 
-            $entityManager->persist($player);
-            $entityManager->flush();
+			$entityManager->persist($player);
+			$entityManager->flush();
 
 			return $this->redirectTo("/player");
 		}

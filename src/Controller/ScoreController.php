@@ -15,21 +15,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class ScoreController extends AbstractController
 {
 
-	/** @Route("/score",name="score") */
+	/** @Route("/score", name="score") */
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $scores = $entityManager->getRepository(Score::class)->findAll();
         $games = $entityManager->getRepository(Game::class)->findAll();
         $players = $entityManager->getRepository(Player::class)->findAll();
 
-//        dd($scores);
         return $this->render("score/index.html.twig", ["scores" => $scores,
             "games" => $games, "players" => $players]);
     }
 
-	public function delete(Request $request, EntityManagerInterface $entityManager): Response
+	/** @Route("/score/delete/{id}", name="score_delete") */
+	public function delete($id, Request $request, EntityManagerInterface $entityManager): Response
 	{
-		$id = $request->query->get("id");
+		// $id = $request->query->get("id");
 		$repository = $entityManager->getRepository(Score::class);
 		$score = $repository->find($id);
 
@@ -39,6 +39,8 @@ class ScoreController extends AbstractController
 
 		return $this->redirectTo("/score");
 	}
+
+	/** @Route("/score/add", name="score_add") */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         $score = new Score();

@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use \Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
+use Twig\TwigFunction;
 use Twig\Loader\FilesystemLoader;
+use \Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 abstract class AbstractController
 {
@@ -16,7 +17,11 @@ abstract class AbstractController
         $twig = new Environment($loader, [
             'cache' => __DIR__ . "/../../var/cache/",
             'debug' => true,
-        ]);
+		]);
+		// $function = new TwigFunction('path', function ($url) use ($data)  {
+		// 	return $data['url_generator']->generate($url);
+		// });
+		// $twig->addFunction($function);
 
         return new Response($twig->render($templateName, $data));
     }

@@ -19,8 +19,6 @@ class GameController extends AbstractController
         $repository = $entityManager->getRepository(Game::class);
         $games = $repository->findAll();
 
-//        dd($games);
-
         return $this->render(
             "game/index.html.twig",
             ["games" => $games]
@@ -30,6 +28,7 @@ class GameController extends AbstractController
 
     }
 
+	/** @Route("/game/add", name="game_add") */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         if ($request->getMethod() == Request::METHOD_POST) {
@@ -50,10 +49,10 @@ class GameController extends AbstractController
         return $this->render("game/form.html.twig", ["game" => $game]);
     }
 
-
-    public function show(Request $request, EntityManagerInterface $entityManager): Response
+	/** @Route("/game/show/{id}", name="game_show") */
+    public function show($id, Request $request, EntityManagerInterface $entityManager): Response
     {
-        $id = $request->query->get("id");
+        // $id = $request->query->get("id");
 
         $repository = $entityManager->getRepository(Game::class);
         $game = $repository->find($id);
@@ -66,10 +65,10 @@ class GameController extends AbstractController
         );
     }
 
-
-    public function edit(Request $request, EntityManagerInterface $entityManager): Response
+	/** @Route("/game/edit/{id}", name="game_edit") */
+    public function edit($id, Request $request, EntityManagerInterface $entityManager): Response
     {
-        $id = $request->query->get("id");
+        // $id = $request->query->get("id");
 
         $repository = $entityManager->getRepository(Game::class);
         $game = $repository->find($id);
@@ -90,9 +89,10 @@ class GameController extends AbstractController
         return $this->render("game/form.html.twig",	["game" => $game]);
     }
 
-    public function delete(Request $request, EntityManagerInterface $entityManager): Response
+	/** @Route("/game/delete/{id}", name="game_delete") */
+    public function delete($id, Request $request, EntityManagerInterface $entityManager): Response
     {
-        $id = $request->query->get("id");
+        // $id = $request->query->get("id");
         $repository = $entityManager->getRepository(Game::class);
         $game = $repository->find($id);
 
