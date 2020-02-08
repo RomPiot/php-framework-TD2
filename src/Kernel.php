@@ -47,7 +47,8 @@ class Kernel
             ),
             __DIR__ . "/Controller",
             $this->cacheIsEnabled ? ["cache_dir" => $this->getDirCache() . "/router"] : []
-        );
+		);
+		
         $response = $this->route($this->request);
         $response->send();
 
@@ -92,7 +93,7 @@ class Kernel
         list($className, $method) = explode("::", $parameters["_controller"]);
         $resolvedArguments = $this->parametersResolver($className, $method, $parameters);
         $controller = new $className();
-        if ($controller instanceof Symfony\Bundle\FrameworkBundle\Controller\AbstractController) {
+        if ($controller instanceof AbstractController) {
             $controller->setRouter($this->router);
         }
         return call_user_func_array([$controller, $method], $resolvedArguments);

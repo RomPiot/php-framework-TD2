@@ -7,9 +7,12 @@ use Twig\TwigFunction;
 use Twig\Loader\FilesystemLoader;
 use \Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Routing\Router;
 
 abstract class AbstractController
 {
+	private $router;
+
     public function render($templateName, $data = []): Response
     {
 
@@ -18,15 +21,25 @@ abstract class AbstractController
             'cache' => __DIR__ . "/../../var/cache/",
             'debug' => true,
 		]);
-		// $function = new TwigFunction('path', function ($url) use ($data)  {
-		// 	return $data['url_generator']->generate($url);
-		// });
-		// $twig->addFunction($function);
+
+		$function = new TwigFunction('path', function ($path, $param = [])  {
+			return $this->router->generate($path, $param);
+		});
+		$twig->addFunction($function);
 
         return new Response($twig->render($templateName, $data));
     }
 
     public function redirectTo($path){
         return new RedirectResponse($path);
+	}
+	
+	public function redirectToRoute() {
+		
+	}
+
+    public function setRouter(Router $router)
+    {
+     $this->router = $router;
     }
 }
