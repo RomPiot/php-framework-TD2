@@ -9,7 +9,6 @@
             <select class="custom-select mr-sm-3" id="game" name="game" required>
                 <option disabled selected>game</option>
                 {% for game in games %}
-
                     <option value="{{ game.id }}">{{ game.name }}</option>
                 {% endfor %}
             </select>
@@ -47,7 +46,7 @@
             <tr>
                 <td>{{ score.id }}</td>
                 <td>{{ score.player.username }}</td>
-                <td>{{ score.game.username }}</td>
+                <td>{{ score.game.name }}</td>
                 <td>{{ score.score }}</td>
                 <td>
                     <a href="/score/delete?id={{ score.id }}"
