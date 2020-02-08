@@ -11,35 +11,36 @@ use Symfony\Component\Routing\Router;
 
 abstract class AbstractController
 {
-	private $router;
+	private ?Router $router;
 
-    public function render($templateName, $data = []): Response
-    {
-
-        $loader = new FilesystemLoader(__DIR__ . "/../../templates");
-        $twig = new Environment($loader, [
-            'cache' => __DIR__ . "/../../var/cache/",
-            'debug' => true,
+	public function render($templateName, $data = []): Response
+	{
+		$loader = new FilesystemLoader(__DIR__ . "/../../templates");
+		$twig = new Environment($loader, [
+			'cache' => __DIR__ . "/../../var/cache/",
+			'debug' => true,
 		]);
 
-		$function = new TwigFunction('path', function ($path, $param = [])  {
+		$function = new TwigFunction('path', function ($path, $param = []) {
 			return $this->router->generate($path, $param);
 		});
 		$twig->addFunction($function);
 
-        return new Response($twig->render($templateName, $data));
-    }
-
-    public function redirectTo($path){
-        return new RedirectResponse($path);
-	}
-	
-	public function redirectToRoute() {
-		
+		return new Response($twig->render($templateName, $data));
 	}
 
-    public function setRouter(Router $router)
-    {
-     $this->router = $router;
-    }
+	public function redirect($url): RedirectResponse
+	{
+		return new RedirectResponse($url);
+	}
+
+	public function redirectToRoute($route,  array $param = []): RedirectResponse
+	{
+		return $this->redirect($this->router->generate($route, $param));
+	}
+
+	public function setRouter(Router $router): void
+	{
+		$this->router = $router;
+	}
 }

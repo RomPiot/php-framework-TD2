@@ -42,7 +42,7 @@ class GameController extends AbstractController
                 $entityManager->persist($game);
                 $entityManager->flush();
             }
-            return $this->redirectTo("/game");
+            return $this->redirectToRoute("games");
         }
 
         $game = $game ?? null;
@@ -83,7 +83,7 @@ class GameController extends AbstractController
                 $entityManager->persist($game);
                 $entityManager->flush();
 
-                return $this->redirectTo("/game");
+                return $this->redirectToRoute("games");
             }
         }
         return $this->render("game/form.html.twig",	["game" => $game]);
@@ -98,7 +98,7 @@ class GameController extends AbstractController
 
         $entityManager->remove($game);
         $entityManager->flush();
-        return $this->redirectTo("/game");
+        return $this->redirectToRoute("games");
 
     }
 

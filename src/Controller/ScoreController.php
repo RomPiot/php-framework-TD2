@@ -37,7 +37,7 @@ class ScoreController extends AbstractController
 		$entityManager->flush();
 
 
-		return $this->redirectTo("/score");
+		return $this->redirectToRoute("scores");
 	}
 
 	/** @Route("/score/add", name="score_add") */
@@ -69,7 +69,7 @@ class ScoreController extends AbstractController
            }
 
 
-            return $this->redirectTo("/score");
+            return $this->redirectToRoute("scores");
         }
     }
 

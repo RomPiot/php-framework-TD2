@@ -39,7 +39,7 @@ class PlayerController extends AbstractController
 				$entityManager->persist($player);
 				$entityManager->flush();
 			}
-			return $this->redirectTo("/player");
+			return $this->redirectToRoute("players");
 		}
 
 		return $this->render("player/form.html.twig", ["player" => $player]);
@@ -81,7 +81,7 @@ class PlayerController extends AbstractController
 				$entityManager->persist($player);
 				$entityManager->flush();
 
-				return $this->redirectTo("/player");
+				return $this->redirectToRoute("players");
 			}
 		}
 		return $this->render("player/form.html.twig",	["player" => $player]);
@@ -98,7 +98,7 @@ class PlayerController extends AbstractController
 		$entityManager->flush();
 
 
-		return $this->redirectTo("/player");
+		return $this->redirectToRoute("players");
 	}
 
 	/** @Route("/player/addgame", name="player_add_game") */
@@ -119,7 +119,7 @@ class PlayerController extends AbstractController
 			$entityManager->persist($player);
 			$entityManager->flush();
 
-			return $this->redirectTo("/player");
+			return $this->redirectToRoute("players");
 		}
 	}
 }
