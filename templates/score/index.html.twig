@@ -47,7 +47,7 @@
             <tr>
                 <td>{{ score.id }}</td>
                 <td>{{ score.player.username }}</td>
-                <td>{{ score.game.username }}</td>
+                <td>{{ score.game.name }}</td>
                 <td>{{ score.score }}</td>
                 <td>
 					<a href="{{ path("score_delete", {id: score.id}) }}"
