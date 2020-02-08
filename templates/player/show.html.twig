@@ -27,7 +27,9 @@
 <div class="row">
     {% for game in player.games %}
         <div class="col-3" style="margin-bottom: 16px;">
-            <a href="/game/show?id={{ game.id }}"><img class="img-responsive" src="{{ game.image }}"/></a>
+			<a href="{{ path("game_show", {id: game.id}) }}"> 
+				<img class="img-responsive" src="{{ game.image }}"/>
+			</a>
         </div>
     {% endfor %}
 </div>

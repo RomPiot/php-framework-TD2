@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PlayerController extends AbstractController
 {
-	/** @Route("/player", name="player") */
+	/** @Route("/player", name="players") */
 	public function index(Request $request, EntityManagerInterface $entityManager): Response
 	{
 		$repository = $entityManager->getRepository(Player::class);

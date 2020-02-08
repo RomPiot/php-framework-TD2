@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ScoreController extends AbstractController
 {
 
-	/** @Route("/score", name="score") */
+	/** @Route("/score", name="scores") */
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $scores = $entityManager->getRepository(Score::class)->findAll();
